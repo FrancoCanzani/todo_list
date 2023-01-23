@@ -1,0 +1,8 @@
+@use "partials/reset";
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
+$font-stack: "IBM Plex Mono", monospace;
+
+body {
+  font-family: $font-stack;
+}
