@@ -130,8 +130,31 @@ table {
   border-spacing: 0;
 }
 
+header {
+  background: #264653;
+  color: white;
+  text-transform: uppercase;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: bolder;
+}
+
+.github {
+  height: 25px;
+  margin-right: 1rem;
+}
+
 body {
+  font-size: 16px;
   font-family: "IBM Plex Mono", monospace;
+  background: #2a9d8f;
 }
 
 /*# sourceMappingURL=style.css.map */
