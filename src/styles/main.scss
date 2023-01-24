@@ -1,11 +1,11 @@
 @use "partials/reset";
 @use "partials/header";
+@use "partials/sidebar";
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
 
 $font-stack: "IBM Plex Mono", monospace;
-$primary-color: #2a9d8f;
-$header-color: #264653;
+$primary-color: #f8f8f8;
 
 body {
   font-size: 16px;

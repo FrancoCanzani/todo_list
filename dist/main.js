@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://todo_list/./src/index.js?");
+eval("function openSidebar() {\r\n  var sidebar = document.getElementById(\"sidebar\");\r\n  sidebar.classList.toggle(\"open\");\r\n}\r\n\n\n//# sourceURL=webpack://todo_list/./src/index.js?");
 
 /***/ })
 

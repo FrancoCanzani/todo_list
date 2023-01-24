@@ -1,0 +1,157 @@
+$primary-color: #f8f8f8;
+$font-stack: "IBM Plex Mono", monospace;
+
+#sidebar {
+  position: fixed;
+  top: 10vh;
+  left: -40vh;
+  width: 40vh;
+  height: 100%;
+  background: $primary-color;
+  transition: left 0.3s ease-out;
+  z-index: 2;
+  box-shadow: 5px 0px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar .projects {
+  margin: 4rem 0 0 1rem;
+}
+
+#sidebar.open {
+  left: 0;
+}
+
+#burger_menu {
+  position: fixed;
+  top: 12vh;
+  left: 1rem;
+  z-index: 3;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+#burger_menu.open {
+  transform: rotate(45deg);
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  margin: 5px 0;
+  background: black;
+  transition: transform 0.3s ease-out;
+}
+
+#burger_menu.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger_menu.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#burger_menu.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.add_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 11px;
+}
+
+.add_project {
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 3px;
+  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,
+    rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  cursor: crosshair;
+  text-transform: uppercase;
+  height: 35px;
+  margin-right: 18px;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.add_project:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.add_project:hover {
+  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px,
+    rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.add_project:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+// New Project Popup
+
+.new_project {
+  visibility: hidden;
+  padding: 0 2rem 0 2rem;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #edf2f4;
+  border: 2px solid black;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.new_project h1 {
+  text-transform: uppercase;
+  margin-top: 15px;
+  font-weight: bolder;
+}
+
+.new_project form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.new_project form * {
+  margin: 5px;
+}
+
+.new_project input,
+textarea {
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid black;
+}
+
+.submit_button {
+  font-family: $font-stack;
+  font-weight: bolder;
+  transition: box-shadow 0.15s, transform 0.15s;
+  cursor: pointer;
+}
+
+.submit_button:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.submit_button:hover {
+  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px,
+    rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.submit_button:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
