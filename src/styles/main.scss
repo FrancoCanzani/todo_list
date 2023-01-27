@@ -1,6 +1,7 @@
 @use "partials/reset";
 @use "partials/header";
 @use "partials/sidebar";
+@use "partials/content";
 
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
 
@@ -11,4 +12,8 @@ body {
   font-size: 16px;
   font-family: $font-stack;
   background: $primary-color;
+}
+
+.container {
+  display: flex;
 }

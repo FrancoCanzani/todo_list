@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
+  \***************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap);
+/*!*******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss (1) ***!
+  \*******************************************************************************************************************/
 html,
 body,
 div,
@@ -158,6 +164,7 @@ header h1 {
 
 #sidebar {
   position: fixed;
+  overflow: auto;
   top: 10vh;
   left: -40vh;
   width: 40vh;
@@ -166,10 +173,6 @@ header h1 {
   transition: left 0.3s ease-out;
   z-index: 2;
   box-shadow: 5px 0px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-#sidebar .projects {
-  margin: 4rem 0 0 1rem;
 }
 
 #sidebar.open {
@@ -209,7 +212,7 @@ header h1 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.add_buttons {
+.add_button {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -219,9 +222,6 @@ header h1 {
 
 .add_project {
   align-items: center;
-  border: 2px solid black;
-  border-radius: 3px;
-  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px, rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   cursor: crosshair;
   text-transform: uppercase;
   height: 35px;
@@ -241,6 +241,36 @@ header h1 {
 .add_project:active {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+.projects {
+  margin-top: 1rem;
+}
+
+.added_project {
+  width: 100%;
+  border-radius: 3px;
+  padding: 1rem 0;
+  background: #edf2f4;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.added_project:hover {
+  background: #dbecf3;
+}
+
+.added_project h1 {
+  margin-left: 1rem;
+  font-weight: bolder;
+}
+
+.delete_button {
+  max-width: 20px;
+  cursor: pointer;
+  margin-right: 1rem;
 }
 
 .new_project {
@@ -284,6 +314,9 @@ textarea {
 }
 
 .submit_button {
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid black;
   font-family: "IBM Plex Mono", monospace;
   font-weight: bolder;
   transition: box-shadow 0.15s, transform 0.15s;
@@ -309,5 +342,3 @@ body {
   font-family: "IBM Plex Mono", monospace;
   background: #f8f8f8;
 }
-
-/*# sourceMappingURL=style.css.map */

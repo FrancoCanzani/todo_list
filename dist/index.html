@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
     <title>Projector</title>
   </head>
   <body>
@@ -15,37 +15,47 @@
       /></a>
     </header>
 
-    <div id="burger_menu">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <div id="sidebar">
-      <div class="add_buttons">
-        <button class="add_project">New Project</button>
+    <div class="container">
+      <div id="sidebar">
+        <div class="add_button">
+          <button class="add_project">New Project</button>
+        </div>
+        <div class="projects"></div>
       </div>
-      <div class="projects"></div>
-    </div>
 
-    <div class="content">
       <!-- Popup -->
       <div class="new_project">
         <h1>Let's add a new project</h1>
-        <form>
-          <label for="project-name">Project Name:</label>
-          <input type="text" id="project-name" name="project-name" required />
+        <form id="form">
+          <label for="project_name">Project Name:</label>
+          <input
+            type="text"
+            id="project_name"
+            name="project_name"
+            maxlength="20"
+            required
+          />
 
-          <label for="due-date">Due Date:</label>
-          <input type="date" id="due-date" name="due-date" required />
+          <label for="due_date">Due Date:</label>
+          <input
+            type="date"
+            id="due_date"
+            name="due_date"
+            min="2022-01-01"
+            required
+          />
 
           <label for="notes">Notes:</label>
           <textarea id="notes" name="notes"></textarea>
 
-          <input type="submit" value="Submit" class="submit_button" />
+          <button type="submit" value="Submit" class="submit_button">
+            Submit
+          </button>
         </form>
       </div>
-    </div>
 
+      <div class="content"></div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

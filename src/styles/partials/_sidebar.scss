@@ -2,59 +2,17 @@ $primary-color: #f8f8f8;
 $font-stack: "IBM Plex Mono", monospace;
 
 #sidebar {
-  position: fixed;
+  overflow: auto;
   top: 10vh;
-  left: -40vh;
-  width: 40vh;
-  height: 100%;
+  left: 0;
+  width: 15vw;
+  height: 90vh;
   background: $primary-color;
   transition: left 0.3s ease-out;
-  z-index: 2;
   box-shadow: 5px 0px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-#sidebar .projects {
-  margin: 4rem 0 0 1rem;
-}
-
-#sidebar.open {
-  left: 0;
-}
-
-#burger_menu {
-  position: fixed;
-  top: 12vh;
-  left: 1rem;
-  z-index: 3;
-  cursor: pointer;
-  transition: transform 0.3s ease-out;
-}
-
-#burger_menu.open {
-  transform: rotate(45deg);
-}
-
-.bar {
-  width: 30px;
-  height: 3px;
-  margin: 5px 0;
-  background: black;
-  transition: transform 0.3s ease-out;
-}
-
-#burger_menu.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-#burger_menu.open .bar:nth-child(2) {
-  opacity: 0;
-}
-
-#burger_menu.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.add_buttons {
+.add_button {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -64,31 +22,55 @@ $font-stack: "IBM Plex Mono", monospace;
 
 .add_project {
   align-items: center;
+  background: #edf2f4;
+  font-family: inherit;
   border: 2px solid black;
   border-radius: 3px;
-  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,
-    rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  cursor: crosshair;
   text-transform: uppercase;
+  font-weight: bolder;
+  cursor: crosshair;
   height: 35px;
-  margin-right: 18px;
+  margin: 2px 18px 0 0;
   transition: box-shadow 0.15s, transform 0.15s;
-}
-
-.add_project:focus {
-  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-}
-
-.add_project:hover {
-  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px,
-    rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
+.add_project:hover {
+  background: #dbecf3;
+}
+
 .add_project:active {
-  box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+.projects {
+  margin-top: 1rem;
+}
+
+.added_project {
+  width: 100%;
+  border-radius: 3px;
+  padding: 1rem 0;
+  background: #edf2f4;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.added_project:hover {
+  background: #dbecf3;
+}
+
+.added_project h1 {
+  margin-left: 1rem;
+  font-weight: bolder;
+}
+
+.delete_button {
+  max-width: 20px;
+  cursor: pointer;
+  margin-right: 1rem;
 }
 
 // New Project Popup
@@ -134,6 +116,9 @@ textarea {
 }
 
 .submit_button {
+  padding: 5px;
+  border-radius: 3px;
+  border: 2px solid black;
   font-family: $font-stack;
   font-weight: bolder;
   transition: box-shadow 0.15s, transform 0.15s;
