@@ -3,17 +3,16 @@
 @use "partials/sidebar";
 @use "partials/content";
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap");
-
-$font-stack: "IBM Plex Mono", monospace;
-$primary-color: #f8f8f8;
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,100&display=swap");
+$font-stack: "Kanit", sans-serif;
+$primary-color: #000000;
+$background-color: #ffffff;
+$secondary-background-color: #fbe9ee;
 
 body {
   font-size: 16px;
   font-family: $font-stack;
-  background: $primary-color;
-}
-
-.container {
-  display: flex;
+  .container {
+    display: flex;
+  }
 }

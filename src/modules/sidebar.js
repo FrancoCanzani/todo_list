@@ -1,45 +1,28 @@
-const new_project = document.getElementsByClassName("add_project")[0];
-const new_project_popup = document.getElementsByClassName("new_project")[0];
-const form = document.getElementById("form");
-const projects = document.getElementsByClassName("projects")[0];
-const content = document.getElementsByClassName("content")[0];
+import { format, compareAsc } from "date-fns";
 
-function formPopup(button, formDiv) {
-  button.addEventListener("click", function () {
-    formDiv.style.visibility = "visible";
-    formDiv.style.opacity = 1;
-  });
-}
+const newProjectButton = document.querySelector(".add_project");
+const newProjectPopup = document.querySelector(".new_project");
+const form = document.querySelector("#form");
+const projectsContainer = document.querySelector(".projects");
+const projectInfo = document.querySelector(".project_info");
 
-formPopup(new_project, new_project_popup);
+let projectsArray = [];
 
+// Show the new project form when the new project button is clicked
+newProjectButton.addEventListener("click", function () {
+  newProjectPopup.style.visibility = "visible";
+  newProjectPopup.style.opacity = 1;
+});
+
+// Hide the new project form when the form is submitted
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  hidePopup();
+});
+
+// Helper function to hide the new project form
 function hidePopup() {
-  new_project_popup.style.visibility = "hidden";
-}
-
-function addNewProject() {
-  let newProject = document.createElement("div");
-  newProject.classList.add("added_project");
-  projects.appendChild(newProject);
-  let new_project_title = document.createElement("h1");
-  new_project_title.innerText = document.getElementById("project_name").value;
-  newProject.appendChild(new_project_title);
-  newProject.addEventListener("click", function () {
-    content.innerHTML = "";
-    let project_title_display = document.createElement("h1");
-    project_title_display.classList.add("project_title_");
-    content.appendChild(project_title_display);
-    project_title_display.innerText = "Hello";
-  });
-
-  const delete_button = document.createElement("img");
-  delete_button.src = "assets/delete.svg";
-  delete_button.classList.add("delete_button");
-  newProject.appendChild(delete_button);
-  delete_button.addEventListener("click", function () {
-    const parent = this.parentElement;
-    parent.remove();
-  });
+  newProjectPopup.style.visibility = "hidden";
 }
 
 class TodoList {
@@ -64,16 +47,60 @@ class TodoList {
   }
 }
 
-let projectsArray = [];
-
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // Get the values from the form inputs
   let name = document.getElementById("project_name").value;
   let date = document.getElementById("due_date").value;
   let notes = document.getElementById("notes").value;
+
+  // Create a new TodoList object and add it to the projectsArray
   projectsArray.push(new TodoList(name, date, notes));
-  addNewProject();
+
+  // Create a new div for the project and add it to the projects container
+  let newProject = document.createElement("div");
+  newProject.classList.add("added_project");
+  projectsContainer.appendChild(newProject);
+
+  // Create an h1 element for the project title and add it to the new project div
+  let newProjectTitle = document.createElement("h1");
+  newProjectTitle.innerText = name;
+  newProject.appendChild(newProjectTitle);
+
+  // Add a click event listener to the new project div
+  newProject.addEventListener("click", function () {
+    projectInfo.innerHTML = "";
+
+    let projectTitleDisplay = document.createElement("h1");
+    projectTitleDisplay.classList.add("project_title_display");
+    projectInfo.appendChild(projectTitleDisplay);
+    let projectDateDisplay = document.createElement("h1");
+    projectDateDisplay.classList.add("project_date_display");
+    projectInfo.appendChild(projectDateDisplay);
+    let projectNotesDisplay = document.createElement("h1");
+    projectNotesDisplay.classList.add("project_notes_display");
+    projectInfo.appendChild(projectNotesDisplay);
+    let index = projectsArray.findIndex(
+      (obj) => obj.name === newProjectTitle.textContent
+    );
+
+    const formatDate = format(new Date(date), "MMMM dd, yyyy");
+    projectTitleDisplay.innerText = name;
+    projectDateDisplay.innerText = `Due date: ${formatDate}`;
+    projectNotesDisplay.innerText = `Notes: ${notes}`;
+  });
+
+  const delete_button = document.createElement("img");
+  delete_button.src = "assets/delete.svg";
+  delete_button.classList.add("delete_button");
+  newProject.appendChild(delete_button);
+  delete_button.addEventListener("click", function () {
+    const parent = this.parentElement;
+    parent.remove();
+  });
+
   hidePopup();
 });
 
-export { formPopup, new_project, new_project_popup, form };
+export { form };

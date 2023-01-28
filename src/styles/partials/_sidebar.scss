@@ -1,42 +1,71 @@
-$primary-color: #f8f8f8;
-$font-stack: "IBM Plex Mono", monospace;
+$primary-color: #000000;
+$background-color: #ffffff;
+$secondary-background-color: #fbe9ee;
+$font-stack: "Kanit", sans-serif;
 
 #sidebar {
   overflow: auto;
   top: 10vh;
   left: 0;
-  width: 15vw;
   height: 90vh;
-  background: $primary-color;
-  transition: left 0.3s ease-out;
-  box-shadow: 5px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  min-width: 15%;
+  color: $primary-color;
+  opacity: 1;
+  transition: opacity 1s ease 0s;
+  box-shadow: 6px 6px 2px -3px rgba(0, 0, 0, 0.51);
 }
 
-.add_button {
-  width: 100%;
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#sidebar:hover {
+  opacity: 0.7;
+}
+
+.add_project_div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 11px;
+  background: aquamarine;
+  padding: 5px;
+
+  h1 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin: 3px;
+    font-size: 1.5rem;
+  }
 }
 
 .add_project {
-  align-items: center;
-  background: #edf2f4;
+  background-color: $background-color;
   font-family: inherit;
-  border: 2px solid black;
+  margin: 0 0 1rem 1rem;
+  font-size: 1.2rem;
+  border: 2px solid;
   border-radius: 3px;
   text-transform: uppercase;
   font-weight: bolder;
-  cursor: crosshair;
-  height: 35px;
-  margin: 2px 18px 0 0;
+  cursor: pointer;
   transition: box-shadow 0.15s, transform 0.15s;
-  transform: translateY(-2px);
-}
-
-.add_project:hover {
-  background: #dbecf3;
+  box-shadow: 6px 6px 2px -3px aquamarine;
 }
 
 .add_project:active {
@@ -45,6 +74,8 @@ $font-stack: "IBM Plex Mono", monospace;
 
 .projects {
   margin-top: 1rem;
+  min-height: 300px;
+  border-radius: 5px;
 }
 
 .added_project {
@@ -83,8 +114,9 @@ $font-stack: "IBM Plex Mono", monospace;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #edf2f4;
-  border: 2px solid black;
+  color: $primary-color;
+  background-color: aquamarine;
+  border: 2px solid $primary-color;
   border-radius: 3px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -94,6 +126,7 @@ $font-stack: "IBM Plex Mono", monospace;
   text-transform: uppercase;
   margin-top: 15px;
   font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 .new_project form {
@@ -102,6 +135,7 @@ $font-stack: "IBM Plex Mono", monospace;
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  font-weight: bold;
 }
 
 .new_project form * {
@@ -116,24 +150,15 @@ textarea {
 }
 
 .submit_button {
-  padding: 5px;
+  background-color: $background-color;
+  font-family: inherit;
+  border: 2px solid;
   border-radius: 3px;
-  border: 2px solid black;
-  font-family: $font-stack;
+  text-transform: uppercase;
   font-weight: bolder;
-  transition: box-shadow 0.15s, transform 0.15s;
   cursor: pointer;
-}
-
-.submit_button:focus {
-  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-}
-
-.submit_button:hover {
-  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px,
-    rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-  transform: translateY(-2px);
+  transition: box-shadow 0.15s, transform 0.15s;
+  box-shadow: 6px 6px 2px -3px rgba(0, 0, 0, 0.51);
 }
 
 .submit_button:active {
