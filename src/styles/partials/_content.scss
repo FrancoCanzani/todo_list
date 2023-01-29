@@ -29,6 +29,25 @@ $font-stack: "Kanit", sans-serif;
 
     .project_notes_display {
       font-weight: bolder;
+      margin-bottom: 10px;
     }
+  }
+
+  .new_task_button {
+    background-color: $background-color;
+    visibility: hidden;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 2px solid;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: box-shadow 0.15s, transform 0.15s;
+    box-shadow: 6px 6px 2px -3px aquamarine;
+  }
+
+  .new_task_button:active {
+    transform: translateY(2px);
   }
 }
